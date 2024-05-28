@@ -38,7 +38,10 @@ const LoginPage = () => {
 		onSuccess: (data) => {
 			toast.success("Login successful");
 			queryClient.invalidateQueries({queryKey:["authUser"]})
-		}
+		},
+		onError: (error) => {
+			toast.error(error.message || "An error occurred during login");
+			},
 	});
 
 	const handleSubmit = (e) => {

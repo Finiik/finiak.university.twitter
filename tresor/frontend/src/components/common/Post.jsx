@@ -14,7 +14,7 @@ const Post = ({ post }) => {
 	const [comment, setComment] = useState("");
 	const {data: authUser} = useQuery({queryKey: ["authUser"]})
 	const queryClient = useQueryClient();
-	const {mutate: deletePost, isPending:isDeleting} = useMutation({
+	const {mutate: deletePost, isPending:isDeleting} = useMutation({ // TODO Lack of CSRF Protection
 		mutationFn: async () => {
 			try {
 				const res = await fetch(`/api/posts/${post._id}`, {

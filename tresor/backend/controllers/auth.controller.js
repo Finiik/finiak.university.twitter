@@ -61,7 +61,7 @@ export const signup = async (req, res) =>{
 export const login = async (req, res) =>{
     try {
        const {username, password} = req.body;
-       const user = await User.findOne({username});
+       const user = await User.findOne({username}); // TODO In the current implementation, there is no mechanism to protect against brute force attacks. This allows an attacker to try different passwords without any restrictions.
        const isPasswordCorrect = await bcrypt.compare(password, user?.password || "");
 
        if(!user || !isPasswordCorrect){

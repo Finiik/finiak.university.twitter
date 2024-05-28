@@ -18,7 +18,7 @@ const userSchema = new mongoose.Schema({
     email:{
         type: String,
         required: true,
-        unique: true,
+        unique: true, // TODO line add a validator for email: match: [/^\S+@\S+.\S+$/, 'Please use a valid email address.']
     },
     followers:[{
         type: mongoose.Schema.Types.ObjectId, // 16 characters

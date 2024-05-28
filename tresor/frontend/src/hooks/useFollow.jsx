@@ -7,7 +7,7 @@ const queryClient = useQueryClient();
 const {mutate:follow, isPending} = useMutation({
     mutationFn: async(userId) => {
         try {
-            const res = await fetch(`api/users/follow/${userId}`,{
+            const res = await fetch(`api/users/follow/${userId}`,{ // TODO If the fetch call itself fails (e.g., network error), it might not reach the catch block. It's better to handle such scenarios explicitly.
                 method: 'POST',
             })
     
